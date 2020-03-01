@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="3.8" group="system" method="upgrade">
+	<name>PLG_SYNJBZOOMENU</name>
+	<creationDate>22.02.2020</creationDate>
+	<author>Ivan Aronov</author>
+	<authorEmail>aron555@inbox.ru</authorEmail>
+	<authorUrl>https://smuzi-studio.ru</authorUrl>
+	<copyright>Copyright © 2020 Smuzi Studio. All rights reserved.</copyright>
+	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+	<version>1.0</version>
+	<description>PLG_SYNJBZOOMENU_XML_DESCRIPTION</description>
+
+	<scriptfile>script.php</scriptfile>
+
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_system_synjbzoomenu.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_system_synjbzoomenu.sys.ini</language>
+		<language tag="ru-RU">ru-RU/ru-RU.plg_system_synjbzoomenu.ini</language>
+		<language tag="ru-RU">ru-RU/ru-RU.plg_system_synjbzoomenu.sys.ini</language>
+	</languages>
+
+	<files>
+		<filename plugin="synjbzoomenu">synjbzoomenu.php</filename>
+		<folder>language</folder>
+	</files>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldpath="/media/zoo/applications/jbuniversal/joomla/fields">
+
+				<field
+						name="typeInit"
+						type="hidden"
+						default="menu"
+						label="PLG_SYNJBZOOMENU_CONFIG_TYPEINIT"
+						description=""
+				>
+					<option value="menu">PLG_SYNJBZOOMENU_CONFIG_TYPEINIT_OPTION_MENU</option>
+				</field>
+
+				<field
+						name="syncMenu"
+						type="menu"
+						default="mainmenu"
+						label="PLG_SYNJBZOOMENU_CONFIG_SYNCMENU"
+						showon="typeInit:menu"
+				/>
+
+				<field
+						name="syncMenuItem"
+						type="menuitem"
+						label="PLG_SYNJBZOOMENU_CONFIG_SYNCMENUITEM"
+						showon="typeinit:menuitem"
+				/>
+
+                <field
+                        name="@spacer"
+                        type="jbzooinit"
+                />
+
+                <field
+                        name="needCatalog"
+                        type="radio"
+                        default="1"
+                        label="PLG_SYNJBZOOMENU_CONFIG_NEEDCATALOG"
+                        class="btn-group"
+                >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="application"
+                        type="jbappcategorylist"
+                        default="0:0"
+                        label="PLG_SYNJBZOOMENU_CONFIG_NAMECATALOG"
+                        description="PLG_SYNJBZOOMENU_CONFIG_NAMECATALOG_DESCRIPTION"
+                        categories="true"
+                        frontpage="true"
+                        showcategories_all="0"
+                        show_categories="0"
+                />
+
+                <!--<field
+                        name="type_id"
+                        type="jbtype"
+                        default="false"
+                        multiple="1"
+                        label="JBZOO_MODCATEGORY_TYPE"
+                        description="JBZOO_MODCATEGORY_TYPE_DESC"
+                />-->
+
+			</fieldset>
+
+		</fields>
+	</config>
+
+</extension>
